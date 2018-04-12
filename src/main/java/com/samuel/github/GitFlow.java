@@ -22,10 +22,10 @@ public class GitFlow {
     private static Repository repository;
 
     /**
-     *
+     * Guarda el repositorio seleccionado para posteriormente trabajar con el.
      * @param directorio
      * @throws IOException
-     * Guarda el repositorio seleccionado para posteriormente trabajar con el.
+     * 
      */
     public static void setRepository(File directorio) throws IOException {
         
@@ -34,9 +34,9 @@ public class GitFlow {
     }
 
     /**
-     *
-     * @return
      * Devuelve el repositorio guardado para trabajar con el
+     * @return
+     * 
      */
     public static Repository getRepository() {
         return repository;
@@ -64,9 +64,9 @@ public class GitFlow {
     }
     
     /**
-     *
-     * @param text
      * Hacer un commit del repositorio seleccionado. Pide un texto como descripción del commit.
+     * @param text
+     * 
      */
     public static void commitRepository(String text) {
         
@@ -84,12 +84,12 @@ public class GitFlow {
     }
     
     /**
-     *
+     * Permite subir el repositorio a github. Pide la URL, nombre y contraseña de la cuenta con la que se subira.
      * @param httpURL
      * @param username
      * @param password
      * @throws URISyntaxException
-     * Permite subir el repositorio a github. Pide la URL, nombre y contraseña de la cuenta con la que se subira.
+     * 
      */
     public static void pushRepository(String httpURL, String username, String password) throws URISyntaxException {
 
@@ -110,10 +110,10 @@ public class GitFlow {
     }
     
     /**
-     *
+     * Permite clonar un repositorio de github. Pide la url del repositorio y el directorio donde se guardara.
      * @param repositoryURL
      * @param directorio
-     * Permite clonar un repositorio de github. Pide la url del repositorio y el directorio donde se guardara.
+     * 
      */
     public static void clonar(String repositoryURL, File directorio) {
         try {
