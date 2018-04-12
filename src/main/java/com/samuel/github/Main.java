@@ -59,6 +59,29 @@ public class Main extends javax.swing.JFrame {
                 
             } catch (URISyntaxException ex) {}
         });
+        
+        // Clona un Repositorio
+        
+        btnClone.addActionListener((ActionEvent e) -> {
+
+            chooser = new JFileChooser(); 
+            chooser.setCurrentDirectory(new java.io.File("."));
+            chooser.setDialogTitle("Escoge el directorio donde clonar el Repositorio");
+            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            chooser.setAcceptAllFileFilterUsed(false);
+            
+            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
+                
+                System.out.println("getCurrentDirectory(): " +  chooser.getCurrentDirectory());
+                System.out.println("getSelectedFile() : " +  chooser.getSelectedFile());
+            } else {
+                
+                System.out.println("No Selection ");
+            }
+            
+            GitFlow.clonar(tfRepositoryURL.getText(), chooser.getSelectedFile());
+        });
+        
     }
 
     @SuppressWarnings("unchecked")

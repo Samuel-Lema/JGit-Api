@@ -79,4 +79,18 @@ public class GitFlow {
             
         } catch (GitAPIException ex) {}
     }
+    
+    public static void clonar(String repositoryURL, File directorio) {
+        try {
+            Git.cloneRepository()
+                    .setURI(repositoryURL)
+                    .setDirectory(directorio)
+                    .call();
+            JOptionPane.showMessageDialog(null, "Repositorio clonado correctamente.");
+            
+        } catch (GitAPIException ex) {
+            
+            JOptionPane.showMessageDialog(null, "Ha habido un error al clonar el Repositorio.");
+        }
+    }
 }
