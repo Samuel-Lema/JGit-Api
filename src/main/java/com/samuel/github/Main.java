@@ -36,6 +36,12 @@ public class Main extends javax.swing.JFrame {
             } catch (IOException ex) {}
         });
         
+        // Inicializa un Repositorio
+        
+        btnInit.addActionListener((ActionEvent e) -> {
+            
+            GitFlow.initRepository();
+        });
     }
 
     @SuppressWarnings("unchecked")

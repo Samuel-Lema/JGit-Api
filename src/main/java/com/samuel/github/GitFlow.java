@@ -29,4 +29,21 @@ public class GitFlow {
         return repository;
     }
 
+    public static void initRepository() {
+        
+        FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
+        
+        try {
+            repositoryBuilder.setGitDir(repository.getDirectory().getCanonicalFile())
+                    .readEnvironment()
+                    .findGitDir()
+                    .setMustExist(true)
+                    .build();
+            JOptionPane.showMessageDialog(null, "El Repositorio ha sido inicializado correctamente.");
+            
+        } catch (Exception ex) {
+            
+            JOptionPane.showMessageDialog(null, "Ha habido un error al inicializar el Repositorio.");
+        }
+    }
 }
