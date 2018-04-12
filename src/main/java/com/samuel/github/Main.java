@@ -3,8 +3,6 @@ package com.samuel.github;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 public class Main extends javax.swing.JFrame {

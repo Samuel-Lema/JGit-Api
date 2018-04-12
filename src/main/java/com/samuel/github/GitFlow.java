@@ -3,8 +3,6 @@ package com.samuel.github;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.PushCommand;
@@ -15,20 +13,38 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
+/**
+ *
+ * @author slemagonzalez
+ */
 public class GitFlow {
     
     private static Repository repository;
 
+    /**
+     *
+     * @param directorio
+     * @throws IOException
+     * Guarda el repositorio seleccionado para posteriormente trabajar con el.
+     */
     public static void setRepository(File directorio) throws IOException {
         
         
         GitFlow.repository = Git.open(new File(directorio.getAbsolutePath() + "/.git")).checkout().getRepository();
     }
 
+    /**
+     *
+     * @return
+     * Devuelve el repositorio guardado para trabajar con el
+     */
     public static Repository getRepository() {
         return repository;
     }
 
+    /**
+     * Inicializa el repositorio seleccionado.
+     */
     public static void initRepository() {
         
         FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
@@ -47,6 +63,11 @@ public class GitFlow {
         }
     }
     
+    /**
+     *
+     * @param text
+     * Hacer un commit del repositorio seleccionado. Pide un texto como descripción del commit.
+     */
     public static void commitRepository(String text) {
         
         Git git = new Git(repository);
@@ -62,6 +83,14 @@ public class GitFlow {
         }
     }
     
+    /**
+     *
+     * @param httpURL
+     * @param username
+     * @param password
+     * @throws URISyntaxException
+     * Permite subir el repositorio a github. Pide la URL, nombre y contraseña de la cuenta con la que se subira.
+     */
     public static void pushRepository(String httpURL, String username, String password) throws URISyntaxException {
 
         try {
@@ -80,6 +109,12 @@ public class GitFlow {
         } catch (GitAPIException ex) {}
     }
     
+    /**
+     *
+     * @param repositoryURL
+     * @param directorio
+     * Permite clonar un repositorio de github. Pide la url del repositorio y el directorio donde se guardara.
+     */
     public static void clonar(String repositoryURL, File directorio) {
         try {
             Git.cloneRepository()
