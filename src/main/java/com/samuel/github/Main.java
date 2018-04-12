@@ -49,6 +49,16 @@ public class Main extends javax.swing.JFrame {
             
             GitFlow.commitRepository(tfCommit.getText());
         });
+        
+        // Hace un push del repositorio seleccionado
+        
+        btnPush.addActionListener((ActionEvent e) -> {
+            
+            try {
+                GitFlow.pushRepository(tfPushURL.getText(), tfName.getText(), tfPassword.getText());
+                
+            } catch (URISyntaxException ex) {}
+        });
     }
 
     @SuppressWarnings("unchecked")

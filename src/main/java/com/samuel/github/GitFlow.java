@@ -61,4 +61,22 @@ public class GitFlow {
             JOptionPane.showMessageDialog(null, "Ha habido un error al hacerle commit al Repositorio.");
         }
     }
+    
+    public static void pushRepository(String httpURL, String username, String password) throws URISyntaxException {
+
+        try {
+            Git git = new Git(repository);
+            RemoteAddCommand remoteAddCommand = git.remoteAdd();
+            remoteAddCommand.setName("origin");
+            remoteAddCommand.setUri(new URIish(httpURL));
+            remoteAddCommand.call();
+            
+            // Pushea y introduce los datos del usuario de git
+            
+            PushCommand pushCommand = git.push();
+            pushCommand.setCredentialsProvider(new UsernamePasswordCredentialsProvider(username, password));
+            pushCommand.call();
+            
+        } catch (GitAPIException ex) {}
+    }
 }
