@@ -46,4 +46,19 @@ public class GitFlow {
             JOptionPane.showMessageDialog(null, "Ha habido un error al inicializar el Repositorio.");
         }
     }
+    
+    public static void commitRepository(String text) {
+        
+        Git git = new Git(repository);
+            
+        try {
+            git.commit()
+                    .setMessage(text)
+                    .call();
+            JOptionPane.showMessageDialog(null, "El Repositorio ha añadido el commit correctamente.");
+                
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ha habido un error al hacerle commit al Repositorio.");
+        }
+    }
 }

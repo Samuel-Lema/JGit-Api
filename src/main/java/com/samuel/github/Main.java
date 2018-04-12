@@ -42,6 +42,13 @@ public class Main extends javax.swing.JFrame {
             
             GitFlow.initRepository();
         });
+        
+        // Hace un commit del repositorio seleccionado
+        
+        btnCommit.addActionListener((ActionEvent e) -> {
+            
+            GitFlow.commitRepository(tfCommit.getText());
+        });
     }
 
     @SuppressWarnings("unchecked")
